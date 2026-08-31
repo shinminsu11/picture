@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>태극 음악 2곡</title>
+
+    <style>
+        body {
+            background-color: #121214;
+            color: #e4e4e7;
+            font-family: 'Malgun Gothic', sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .image-container {
+            margin: 20px 0;
+            background: #1a1a1e;
+            padding: 10px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin: 30px 0 20px 0;
+            color: #ffffff;
+        }
+
+        .playlist {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .track-btn {
+            flex: 1;
+            background-color: #26262b;
+            color: #a1a1aa;
+            border: none;
+            padding: 18px 10px;
+            border-radius: 16px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        .track-btn.active {
+            background-color: #3b82f6;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+        }
+
+        .now-playing {
+            background-color: #1a1a1e;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            color: #a1a1aa;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .now-playing span {
+            color: #fbbf24;
+            font-weight: bold;
+        }
+
+        audio {
+            width: 100%;
+            border-radius: 30px;
+            background: #ffffff;
+            margin-bottom: 30px;
+        }
+
+        .lyrics-container {
+            background-color: #1a1a1e;
+            padding: 25px;
+            border-radius: 16px;
+            text-align: left;
+            white-space: pre-wrap;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #d4d4d8;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.3);
+            max-height: 500px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="image-container">
+        <img src="taegeuk.png" alt="복희 여와 타이틀 그림">
+    </div>
+
+    <h1>태극 음악 2곡</h1>
+
+    <div class="playlist">
+
+        <button class="track-btn active"
+                id="btn-1"
+                onclick="selectTrack(1)">
+            🎵 태극문 열려라
+        </button>
+
+        <button class="track-btn"
+                id="btn-2"
+                onclick="selectTrack(2)">
+            🎵 태극이 돌아간다
+        </button>
+
+    </div>
+
+    <div class="now-playing">
+        현재 재생 중 :
+        <span id="current-title">태극문 열려라</span>
+    </div>
+
+    <audio id="audio-player" controls>
+        <source id="audio-source"
+                src="taegeuk.mp3"
+                type="audio/mpeg">
+        브라우저가 오디오 태그를 지원하지 않습니다.
+    </audio>
+
+    <div class="lyrics-container" id="lyrics-display">
+[Intro]
+
+태극문 열려라
+
+[Verse 1]
+
+오른쪽 오른다 Right 양
+왼쪽 내린다 Left 음
+
+태극이 돌아간다
+
+카라 하나 간다
+뜨르 둘 들어온다
+
+트르서 셋 터진다 솟는다
+너르서 넷 넣다 내려간다
+
+트르서서 다섯 뿌르 뿌려라
+너르서서 여섯 모르 몰려라
+
+일곱 꾸르 꾸부려 꺾어라
+여덟 피르 펴라 펼쳐라
+
+아홉 리을 태극엔진 돌아라 돌아라
+여르 열 열려라
+
+[Verse 2]
+
+오른쪽 오른다 Right 양
+왼쪽 내린다 Left 음
+
+태극이 돌아간다
+
+하나 둘 앞뒤축 선
+셋 넷 동서축 면
+다섯 여섯 남북축 입체
+
+앞뒤동서남북 세축
+삼합육생 팽창의 끝 더 이상 갈 곳이 없다 꺾어라
+
+일 구부려 꺾어 일 구부려 꺾어 꺾어라
+
+일곱 큐브 큐브 큐브
+여덟 팔괘 펼쳐라 펼쳐라
+
+아홉 태극엔진 돌아라
+
+열 여르 열려라
+
+[Drop / Hook]
+
+태극이 돌아간다
+태극이 돌아간다
+
+오른쪽 오른다 Right 양
+왼쪽 내려간다 Left 음
+
+오른손과 왼손이 만난다
+열 완성
+
+돌고 돈다
+태극이 돈다
+
+태극이 열린다
+
+열 여르 열려라
+열 여르 열려라
+
+[Final Message 🌍]
+
+손과 손이 만난다
+
+사람과 사람이 만난다
+세계가 하나로 모인다
+
+모든 방향이
+하나로 모인다
+
+짝
+
+---
+
+[Outro]
+
+태극이 돌아간다
+
+오른쪽은 오른다
+왼쪽은 내린다
+
+카라는 간다
+뜨르는 들어온다
+
+오른손 왼손
+손바닥이 합쳐진다
+
+열
+
+완성
+
+짝…
+    </div>
+
+
+<script>
+
+    /* =========================
+       곡 데이터
+       ========================= */
+
+    const track1 = {
+        title: "태극문 열려라",
+        src: "taegeuk.mp3",
+
+        lyrics: `
+[Intro]
+
+태극문 열려라
+
+[Verse 1]
+
+오른쪽 오른다 Right 양
+왼쪽 내린다 Left 음
+
+태극이 돌아간다
+
+카라 하나 간다
+뜨르 둘 들어온다
+
+트르서 셋 터진다 솟는다
+너르서 넷 넣다 내려간다
+
+트르서서 다섯 뿌르 뿌려라
+너르서서 여섯 모르 몰려라
+
+일곱 꾸르 꾸부려 꺾어라
+여덟 피르 펴라 펼쳐라
+
+아홉 리을 태극엔진 돌아라 돌아라
+여르 열 열려라
+
+[Verse 2]
+
+오른쪽 오른다 Right 양
+왼쪽 내린다 Left 음
+
+태극이 돌아간다
+
+하나 둘 앞뒤축 선
+셋 넷 동서축 면
+다섯 여섯 남북축 입체
+
+앞뒤동서남북 세축
+삼합육생 팽창의 끝 더 이상 갈 곳이 없다 꺾어라
+
+일 구부려 꺾어 일 구부려 꺾어 꺾어라
+
+일곱 큐브 큐브 큐브
+여덟 팔괘 펼쳐라 펼쳐라
+
+아홉 태극엔진 돌아라
+
+열 여르 열려라
+
+[Drop / Hook]
+
+태극이 돌아간다
+태극이 돌아간다
+
+오른쪽 오른다 Right 양
+왼쪽 내려간다 Left 음
+
+오른손과 왼손이 만난다
+열 완성
+
+돌고 돈다
+태극이 돈다
+
+태극이 열린다
+
+열 여르 열려라
+열 여르 열려라
+
+[Final Message 🌍]
+
+손과 손이 만난다
+
+사람과 사람이 만난다
+세계가 하나로 모인다
+
+모든 방향이
+하나로 모인다
+
+짝
+
+---
+
+[Outro]
+
+태극이 돌아간다
+
+오른쪽은 오른다
+왼쪽은 내린다
+
+카라는 간다
+뜨르는 들어온다
+
+오른손 왼손
+손바닥이 합쳐진다
+
+열
+
+완성
+
+짝…`
+    };
+
+
+    const track2 = {
+        title: "태극이 돌아간다",
+        src: "taegeuk1.mp3",
+
+        lyrics: `
+[Intro]
+(whisper, distant)
+
+하나… 둘… 셋… 넷…
+다섯… 여섯… 일곱…
+여덟… 아홉… 열…
+
+짝…
+
+---
+
+[Core]
+
+태극이 돌아간다
+
+오른쪽
+오른다
+라이트 양
+
+왼쪽
+내린다
+레프트 음
+
+앞뒤로 하나 둘
+카라 가다
+뜨르 들어온다
+전후로 선이 생겨난다
+
+[Verse 1]
+
+태극이 돌아간다
+
+오른쪽
+오른다
+라이트 양
+
+왼쪽
+내린다
+레프트 음
+
+동서로 셋 넷
+트르 너르
+좌우로 선이 이어져
+면이 된다
+
+[Verse 2]
+
+태극이 돌아간다
+
+오른쪽
+오른다
+라이트 양
+
+왼쪽
+내린다
+레프트 음
+
+남북으로 다섯 여섯
+뿌르 모르
+쌓여 올라
+입체가 된다
+
+위와 아래
+갈라지고
+공간이 열린다
+
+---
+
+[Build Up – 7→8→9]
+
+일곱
+꾸르
+꾸부려 꼬부려 꺾어
+큐브 모양이 된다
+
+여덟
+피르 피르 펼쳐라
+온 방향으로
+펼쳐진다
+
+피르 피르 피르
+팔방 8괘가 열린다
+
+펼쳐진 모든 것
+
+아 꼬불 꼬부
+아홉
+
+태극이 돌아간다
+오른쪽
+오른다
+라이트 양
+
+왼쪽
+내린다
+레프트 음
+
+태극이 구르고 흐르고 돌아간다
+
+---
+
+[Build Up]
+
+하나 둘 셋 넷
+다섯 여섯 일곱
+여덟 아홉 열
+
+짝…
+짝…
+짝…
+
+(DEAD SILENCE)
+
+---
+
+[Final Drop: Bass and Kick]
+
+짝! 짝! 짝!
+
+카라 뜨르 트르 너르
+뿌르 모르 꾸르 피르
+팔려지음 터진다
+
+KICK IN
+
+카라 가다
+뜨르 들어온다
+
+태극이 돌아간다
+오른쪽
+라이트 양
+오른다
+
+왼쪽
+레프트 음
+내린다
+
+팔로 펼쳐
+아홉으로 굴린다
+
+태극으로
+순환한다
+
+짝!   짝!   짝!
+
+---
+
+[Break: Hand Claps only]
+
+짝   짝   짝
+짝짝   짝
+
+짝짝짝짝짝
+
+---
+
+[Final Message 🌍]
+
+손과 손이 만난다
+
+사람과 사람이 만난다
+세계가 하나로 모인다
+
+모든 방향이
+하나로 모인다
+
+짝
+
+---
+
+[Outro]
+
+태극이 돌아간다
+
+오른쪽은 오른다
+왼쪽은 내린다
+
+카라는 간다
+뜨르는 들어온다
+
+오른손 왼손
+손바닥이 합쳐진다
+
+십
+
+완성
+
+짝…`
+    };
+
+
+    /* =========================
+       현재 곡 번호
+       ========================= */
+
+    let currentTrack = 1;
+
+
+    /* =========================
+       곡 선택 함수
+       ========================= */
+
+    function selectTrack(trackNum) {
+
+        const btn1 = document.getElementById("btn-1");
+        const btn2 = document.getElementById("btn-2");
+
+        const currentTitle =
+            document.getElementById("current-title");
+
+        const audioSource =
+            document.getElementById("audio-source");
+
+        const audioPlayer =
+            document.getElementById("audio-player");
+
+        const lyricsDisplay =
+            document.getElementById("lyrics-display");
+
+
+        currentTrack = trackNum;
+
+
+        if (trackNum === 1) {
+
+            btn1.classList.add("active");
+            btn2.classList.remove("active");
+
+            currentTitle.innerText =
+                track1.title;
+
+            audioSource.src =
+                track1.src;
+
+            lyricsDisplay.innerText =
+                track1.lyrics;
+
+        } else {
+
+            btn2.classList.add("active");
+            btn1.classList.remove("active");
+
+            currentTitle.innerText =
+                track2.title;
+
+            audioSource.src =
+                track2.src;
+
+            lyricsDisplay.innerText =
+                track2.lyrics;
+        }
+
+
+        audioPlayer.load();
+
+        audioPlayer.play().catch(function() {
+            // 스마트폰 브라우저 자동재생 차단 시 무시
+        });
+    }
+
+
+    /* =========================
+       2곡 자동 반복
+       ========================= */
+
+    document.getElementById("audio-player")
+        .addEventListener("ended", function() {
+
+            if (currentTrack === 1) {
+                selectTrack(2);
+            } else {
+                selectTrack(1);
+            }
+
+        });
+
+</script>
+
+</body>
+</html>
